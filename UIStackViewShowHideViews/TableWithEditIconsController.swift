@@ -33,15 +33,14 @@ class TableWithEditIconsController: UITableViewController {
             
         cell.authorLabel.text = "- " + book.author
         cell.titleLabel.text = book.title
-            
+        
+        // Show or hide the Edit button - UIStackView takes care of the view hierarchy
         if(tableView.editing && self.tableView(tableView, canEditRowAtIndexPath: indexPath))
         {
             cell.buttonEdit.hidden = false
-            //cell.buttonWidth.constant = cell.bounds.size.width * 0.1
         }
         else
         {
-            //cell.buttonWidth.constant = 0
             cell.buttonEdit.hidden = true
         }
         

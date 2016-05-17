@@ -64,7 +64,6 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKa-tp-Beb" userLabel="EditButton">
                                                     <rect key="frame" x="0.0" y="0.0" width="29" height="45"/>
-                                                    <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" image="EditIcon"/>
                                                     <connections>
                                                         <segue destination="u2M-EG-2Eh" kind="show" id="QzB-U4-gjy"/>
