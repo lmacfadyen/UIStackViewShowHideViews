@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  UIStackViewShowHideViews
+//  UITableViewRowEditIcon
 //
-//  Created by Lawrence F MacFadyen on 2016-05-17.
-//  Copyright © 2016 LawrenceM. All rights reserved.
+//  Created by Lawrence F MacFadyen on 2015-10-28.
+//  Copyright © 2015 LawrenceM. All rights reserved.
 //
 
 import UIKit
