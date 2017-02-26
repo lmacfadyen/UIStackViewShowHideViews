@@ -18,16 +18,16 @@ class TableWithEditIconsController: UITableViewController {
         tableView.estimatedRowHeight = 56.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         setEditing(false, animated: true)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:BookTableViewCell = tableView.dequeueReusableCellWithIdentifier("bookCell") as! BookTableViewCell
+        let cell:BookTableViewCell = tableView.dequeueReusableCell(withIdentifier: "bookCell") as! BookTableViewCell
 
         let book = books[indexPath.row]
             
@@ -35,35 +35,35 @@ class TableWithEditIconsController: UITableViewController {
         cell.titleLabel.text = book.title
         
         // Show or hide the Edit button - UIStackView takes care of the view hierarchy
-        if(tableView.editing && self.tableView(tableView, canEditRowAtIndexPath: indexPath))
+        if(tableView.isEditing && self.tableView(tableView, canEditRowAt: indexPath))
         {
-            cell.buttonEdit.hidden = false
+            cell.buttonEdit.isHidden = false
         }
         else
         {
-            cell.buttonEdit.hidden = true
+            cell.buttonEdit.isHidden = true
         }
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books.count
     }
     
 
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            books.removeAtIndex(indexPath.row)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            books.remove(at: indexPath.row)
             tableView.reloadData()
         }
     }
     
-    override func setEditing(editing: Bool, animated: Bool) {
+    override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView.reloadData()
     }
